@@ -29,4 +29,12 @@ public class ConverterTest {
         String result = converter.convert(source);
         assertThat(result).isEqualTo("127.0.0.1:8080");
     }
+
+    @Test
+    void ipPortToString() {
+        StringToIpPortConverter converter = new StringToIpPortConverter();
+        String source = "127.0.0.1:8080";
+        IpPort result = converter.convert(source);
+        assertThat(result).isEqualTo(new IpPort("127.0.0.1", 8080));
+    }
 }
